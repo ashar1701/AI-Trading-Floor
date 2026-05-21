@@ -10,7 +10,6 @@ from datetime import timezone
 load_dotenv(override=True)
 
 polygon_api_key = os.getenv("POLYGON_API_KEY")
-polygon_plan = os.getenv("POLYGON_PLAN")
 
 
 def is_market_open() -> bool:
@@ -20,7 +19,6 @@ def is_market_open() -> bool:
 
 
 def get_all_share_prices_polygon_eod() -> dict[str, float]:
-    """With much thanks to student Reema R. for fixing the timezone issue with this!"""
     client = RESTClient(polygon_api_key)
 
     probe = client.get_previous_close_agg("SPY")[0]

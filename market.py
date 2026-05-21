@@ -42,13 +42,6 @@ def get_share_price_polygon_eod(symbol) -> float:
     market_data = get_market_for_prior_date(today)
     return market_data.get(symbol, 0.0)
 
-
-def get_share_price_polygon_min(symbol) -> float:
-    client = RESTClient(polygon_api_key)
-    result = client.get_snapshot_ticker("stocks", symbol)
-    return result.min.close or result.prev_day.close
-
-
 def get_share_price_polygon(symbol) -> float:
     return get_share_price_polygon_eod(symbol)
 

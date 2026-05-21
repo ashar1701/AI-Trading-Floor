@@ -1,13 +1,13 @@
 # AI-Trading-Floor
-Here's a small project of mine which is a demonstration of my recent learnings from MCP Servers, clients and OpenAI Agents SDK. This is a trading floor run by 4 AI agents - Warren, George, Ray, Cathie - who leverages 3 custom servers using FastMCP. Account server provides tools to get the current state of the user's accounts. Market Server provides the tool to fetch the share price. Push server uses provides the tool to send a push notification using Pushover.
+Here's a small project of mine which is a demonstration of my recent learnings from MCP Servers, clients and OpenAI Agents SDK. This is a trading floor run by 4 AI agents - Warren, George, Ray, Cathie - who leverages 3 custom servers using FastMCP. Account server provides tools to get the current state of each agent's account. Market Server provides the tool to fetch the share price. Push server uses provides the tool to send a push notification using Pushover.
 
-This trading floor has 4 agents who continuously make trades depending on share prices. Each agent has a different trading strategy so each of them look at different parameters before they make a trade. They also send me a push notification to my phone/laptop when they make a trade. I have also added some additional logging in the web applicaiotn so that the user can see what's going on in the backend. There is sqlite memory set up in the backend to store the trades of each agents and to store the user's account information.
+This trading floor has 4 agents who continuously make trades depending on share prices. Each agent has a different trading strategy so each of them look at different parameters before they make a trade and each of them start with 100,000 dollars. They also send me a push notification to my phone/laptop when they make a trade. I have also added some additional logging in the web applicaiotn so that the user can see what's going on in the backend. There is sqlite memory set up in the backend to store the trades of each agents and to store the user's account information.
 
 Since this a demo, I have used the free plan of the Polygon API which only gives me information about yesterday's closing price, thus the agents make trading decisions based on yesterday's closing price. Thus, if you leave the backend running then it runs the simulation once every 24 hours as we end up with new prices. Thank you for taking a look at it and credit to Ed Donner's Agentic AI course that helped me build this. 
 
 Run the frontend with `uv run app.py` and run the backend with `uv run trading_floor.py`. Since there is memory, If you want to have the agents start from scratch again and reset their trades then run `uv run reset.py`
 
-Here's a demo of the application. Looks like this was not a good day for them :)
+Here's a demo of the application. This is after executing the above commands to start the application. Looks like this was not a good day for them :)
 ![Alt Text](AI-trading-floor-demo.gif)
 
 
